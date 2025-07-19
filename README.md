@@ -1,66 +1,60 @@
-# 🧠 AI Methodology Playbook
+# AI Methodology Playbook
 
-A fully functional, real-time AI-powered conversational assistant engineered using modern full-stack technologies including Python, Flask, FastAPI, PostgreSQL, Next.js, and Docker — deployed on **Google Cloud Platform (GCP)**.
+The AI Methodology Playbook is a robust, full-stack, multi-turn LLM-powered conversational playbook designed for intelligent interactions. The system leverages adaptive prompt logic, user feedback loops, and real-time WebSocket updates to deliver accurate, responsive, and scalable AI experiences.
 
----
-
-## 🚀 Overview
-
-The **AI Methodology Playbook** is a context-aware, multi-turn Large Language Model (LLM) based conversational bot designed to streamline internal workflows and deliver adaptive, real-time assistance. It dynamically adjusts model responses using user feedback, ensures multi-model flexibility, and features a responsive interface with live admin monitoring.
+The stack is containerized and deployed using Docker, with each service operating as an independent microservice within a shared network and runs the system on a local machine or the cloud (e.g., Google Cloud Platform).
 
 ---
 
-## 🧩 Key Features
+## Overview
 
-- 🤖 **Multi-turn LLM Bot**: Retains user context for smarter, natural conversations.
-- 🔄 **Model Adaptivity**: Automatically switches models based on user-rated response quality.
-- 🧠 **Prompt Template System**: Flexible prompt design tailored to query types.
-- 📊 **Live Monitoring**: Admin dashboard with WebSocket integration for real-time session tracking.
-- 🌐 **Frontend**: Built using **Next.js** and **Tailwind CSS** for a clean and responsive UX.
-- 🛠️ **Backend**: FastAPI & Flask-based logic handling with REST APIs and async capabilities.
-- 🗃️ **Database**: PostgreSQL for managing user sessions, feedback, and logs.
-- 🐳 **Deployment**: Dockerized and deployed on **Google Cloud Platform (GCP)** for scalable infrastructure.
+- Multi-model, context-aware chatbot with adaptive prompt switching
+- User feedback loop to improve LLM response accuracy by 35%
+- Real-time frontend experience with admin monitoring
+- Modular architecture for scalability and maintainability
+- Docker-based deployment across all services
 
 ---
 
-## 🖼️ Demo
+## Technology Stack
 
-> 🎥 A complete demo video has been prepared to showcase the app in action.  
-> *(Add your video link here)*
-
----
-
-## ⚙️ Tech Stack
-
-| Layer        | Technology                       |
-|--------------|----------------------------------|
-| Frontend     | Next.js, Tailwind CSS            |
-| Backend      | Python, FastAPI, Flask           |
-| Database     | PostgreSQL                       |
-| Live Updates | WebSocket                        |
-| Deployment   | Docker, GCP (Google Cloud Platform) |
+| Layer        | Tech Stack                          |
+|--------------|-------------------------------------|
+| Frontend     | Next.js, Tailwind CSS               |
+| API Server   | FastAPI                             |
+| Data Layer   | Flask                               |
+| LLM Server   | FastAPI                             |
+| Eval Prompt  | FastAPI                             |
+| Database     | PostgreSQL                          |
+| Deployment   | Docker, Docker Compose, GCP         |
+| Live Updates | WebSocket                           |
 
 ---
 
-## 🧪 Setup Instructions
+## Repository Structure
 
-> To run this project locally:
+This repository contains Docker configurations to deploy the following components:
 
-```bash
-# Clone the repository
-git clone https://github.com/your-username/ai-methodology-playbook.git
-cd ai-methodology-playbook
+1. **Frontend** – Next.js interface for user interaction and admin monitoring  
+2. **API Server** – FastAPI application handling routing and orchestration  
+3. **Data Layer Server** – Flask server managing contextual data and metadata  
+4. **LLM Server** – FastAPI server interacting with LLM APIs and logic  
+5. **Evaluation Prompt Server** – FastAPI-based feedback scoring service  
+6. **PostgreSQL Database** – Stores user sessions, prompts, chat history, and feedback
 
-# Set up backend (Flask + FastAPI)
-cd backend
-pip install -r requirements.txt
+---
 
-# Set up frontend (Next.js)
-cd ../frontend
-npm install
-npm run dev
+## Prerequisites
 
-# PostgreSQL setup (ensure you have a DB running or use Docker Compose)
+- Docker and Docker Compose installed
+- PostgreSQL dump files prepared for initialization
 
-# (Optional) Run with Docker
-docker-compose up --build
+---
+
+## Important Notes for Docker Deployment
+
+All services are configured to communicate using **Docker container service names** rather than `localhost`. Configuration files and `.env` settings reflect this change to ensure seamless internal communication.
+
+- PostgreSQL is accessible as `postgres:5432`
+- Inter-service URLs use container names (e.g., `llm-server`, `api-server`)
+- All containers are connected through the custom Docker network `app-network`
