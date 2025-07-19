@@ -1,7 +1,7 @@
 # AI Methodology Playbook
 
 > **Note:** If the cloud deployment link becomes inactive due to expired credits, please refer to the attached project demo video for a complete walkthrough.
-> http://23.236.57.50:3000/ChatBox
+> https://172.26.20.201/ChatBox
 
 The AI Methodology Playbook is a robust, full-stack, multi-turn LLM-powered conversational playbook designed for intelligent interactions. The system leverages adaptive prompt logic, user feedback loops, and real-time WebSocket updates to deliver accurate, responsive, and scalable AI experiences.
 
